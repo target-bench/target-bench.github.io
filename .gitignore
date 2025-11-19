@@ -6,5 +6,6 @@ resources/Benchmark/all_trajectories_plot.png
 resources/Benchmark/*/*
 !resources/Benchmark/*/*_caption.txt
 !resources/Benchmark/*/*_current_frame.png
+!resources/Benchmark/*/*_trajectory_plot.png
 
 vgg-t_github_page_ref_code
