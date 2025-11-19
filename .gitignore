@@ -1,0 +1,10 @@
+# Rule file
+rule.md
+
+# Benchmark data - ignore everything except captions and current frames
+resources/Benchmark/all_trajectories_plot.png
+resources/Benchmark/*/*
+!resources/Benchmark/*/*_caption.txt
+!resources/Benchmark/*/*_current_frame.png
+
+vgg-t_github_page_ref_code

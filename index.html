@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target-Bench: Can World Models Achieve Mapless Path Planning with Semantic Targets?</title>
+    <link rel="icon" type="image/png" href="resources/figs/icon.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="title-section">
+            <div class="title-row-1">
+                <img src="resources/figs/icon.png" alt="TargetBench Icon" class="title-icon">
+                <span class="title-highlight">Target-Bench:</span>
+            </div>
+            <div class="title-row-2">
+                Can World Models Achieve Mapless Path Planning with Semantic Targets?
+            </div>
+        </div>
+        
+        <div class="authors">
+            <div class="author-names">
+                <span class="author">Dingrui Wang<sup>1,2,*</sup></span>
+                <span class="author">Hongyuan Ye<sup>1,*</sup></span>
+                <span class="author">Zhihao Liang<sup>1,*</sup></span>
+                <span class="author">Zhexiao Sun<sup>1,*</sup></span>
+                <span class="author">Zhaowei Lu<sup>1</sup></span>
+                <span class="author">Yuchen Zhang<sup>1</sup></span>
+                <span class="author">Yuyu Zhao<sup>1</sup></span>
+                <span class="author">Yuan Gao<sup>1</sup></span>
+                <span class="author">Marvin Seegert<sup>1</sup></span>
+                <span class="author">Finn Schäfer<sup>1</sup></span>
+                <span class="author">Haotong Qin<sup>3</sup></span>
+                <span class="author">Wei Li<sup>4</sup></span>
+                <span class="author">Luigi Palmieri<sup>2</sup></span>
+                <span class="author">Felix Jahncke<sup>1</sup></span>
+                <span class="author">Mattia Piccinini<sup>1</sup></span>
+                <span class="author">Johannes Betz<sup>1</sup></span>
+            </div>
+            
+            <div class="affiliations">
+                <span><sup>1</sup>TUM</span>
+                <span><sup>2</sup>Bosch AI Center</span>
+                <span><sup>3</sup>ETH</span>
+                <span><sup>4</sup>NJU</span>
+            </div>
+            
+            <div class="equal-contribution">
+                <sup>*</sup> Equal contribution; author order settled via Mario Kart.
+            </div>
+            
+            <div class="links">
+                <a href="CVPR_2026___Robro___TargetBench__arxiv_.pdf" target="_blank">📄 Paper</a>
+                <a href="https://github.com/TUM-AVS/target-bench" target="_blank">
+                    <svg class="github-icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    Code
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <h2>Interactive Video Comparison</h2>
+    <p>Compare ground truth robot navigation videos with different video generation models. Navigate through samples and select models to battle.</p>
+    
+    <div class="sample-info">
+        <span id="sampleCounter">Sample 1 of 117</span>
+    </div>
+    
+    <div class="controls">
+        <button id="prevBtn">◀ Previous</button>
+        <button id="playBtn">▶ Play All</button>
+        <button id="refreshBtn">🔄 Refresh</button>
+        <button id="pauseBtn">⏸ Pause All</button>
+        <button id="nextBtn">Next ▶</button>
+    </div>
+    
+    <div class="video-comparison">
+        <div class="task-column">
+            <h4>Task Description</h4>
+            <div class="task-text" id="taskText">Loading...</div>
+            <h4>Current Frame</h4>
+            <img id="currentFrame" src="" alt="Current Frame">
+        </div>
+        
+        <div class="video-column">
+            <h4>Model A</h4>
+            <select id="modelASelect">
+                <option value="sora-2" selected>Sora 2</option>
+                <option value="veo3.1">Veo 3.1</option>
+                <option value="veo3.1-fast">Veo 3.1 Fast</option>
+                <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
+                <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
+                <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
+                <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
+                <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
+                <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
+                <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
+                <option value="wan2.2-i2v-flash">Wan2.2 I2v Flash</option>
+            </select>
+            <video id="modelAVideo" loop muted playsinline preload="auto">
+                <source src="" type="video/mp4">
+            </video>
+            <div class="video-controls">
+                <button class="play-btn" data-video="modelAVideo">▶</button>
+                <input type="range" class="progress-bar" id="modelAProgress" min="0" max="100" value="0" step="0.1">
+                <span class="time-display" id="modelATime">0:00 / 0:00</span>
+            </div>
+        </div>
+        
+        <div class="video-column">
+            <h4>Model B</h4>
+            <select id="modelBSelect">
+                <option value="sora-2">Sora 2</option>
+                <option value="veo3.1">Veo 3.1</option>
+                <option value="veo3.1-fast">Veo 3.1 Fast</option>
+                <option value="wan2.2-ti2v-5B-FT-DA">Fine-tuned Our Model</option>
+                <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
+                <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
+                <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
+                <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
+                <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
+                <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
+                <option value="wan2.2-i2v-flash" selected>Wan2.2 I2v Flash</option>
+            </select>
+            <video id="modelBVideo" loop muted playsinline preload="auto">
+                <source src="" type="video/mp4">
+            </video>
+            <div class="video-controls">
+                <button class="play-btn" data-video="modelBVideo">▶</button>
+                <input type="range" class="progress-bar" id="modelBProgress" min="0" max="100" value="0" step="0.1">
+                <span class="time-display" id="modelBTime">0:00 / 0:00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="evaluation-pipeline">
+        <h2>Evaluation Pipeline</h2>
+        
+        <div class="pipeline-step">
+            <h3>1. Current Frame & Semantic Task</h3>
+            <div class="step-content">
+                <div class="task-info">
+                    <p><strong>Task:</strong> Move next to the person and stop at the side of the sofa</p>
+                </div>
+                <img src="resources/Benchmark/sample_291_custom_segment_100_400/sample_291_custom_segment_100_400_current_frame.png" alt="Current Frame" class="pipeline-image">
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <h3>2. World Model</h3>
+            <button id="btnGenerate" class="action-btn">Generate</button>
+            <div id="containerGenerate" class="result-container empty">
+                <!-- Content will be injected via JS -->
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <h3>3. Spatial-temporal Reconstruction</h3>
+            <button id="btnReconstruct" class="action-btn">Reconstruct</button>
+            <div id="containerReconstruct" class="result-container empty">
+                <!-- Content will be injected via JS -->
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <h3>4. Extrinsic Extraction Path Builder</h3>
+            <button id="btnExtract" class="action-btn">Extract</button>
+            <div id="containerExtract" class="result-container empty">
+                <!-- Content will be injected via JS -->
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <h3>5. Evaluation with Metrics</h3>
+            <button id="btnEvaluate" class="action-btn">Evaluate</button>
+            <div id="containerEvaluate" class="result-container empty">
+                <!-- Content will be injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
+
