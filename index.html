@@ -71,81 +71,92 @@
         </div>
     </div>
 
-    <h2>Interactive Video Comparison</h2>
-    <p>Compare ground truth robot navigation videos with different video generation models. Navigate through samples and select models to battle.</p>
-    
-    <div class="sample-info">
-        <span id="sampleCounter">Sample 1 of 117</span>
-    </div>
-    
-    <div class="controls">
-        <button id="prevBtn">◀ Previous</button>
-        <button id="playBtn">▶ Play All</button>
-        <button id="refreshBtn">🔄 Refresh</button>
-        <button id="pauseBtn">⏸ Pause All</button>
-        <button id="nextBtn">Next ▶</button>
-    </div>
-    
-    <div class="video-comparison">
-        <div class="task-column">
-            <h4>Task Description</h4>
-            <div class="task-text" id="taskText">Loading...</div>
-            <h4>Current Frame</h4>
-            <img id="currentFrame" src="" alt="Current Frame">
-        </div>
-        
-        <div class="video-column">
-            <h4>Model A</h4>
-            <select id="modelASelect">
-                <option value="sora-2" selected>Sora 2</option>
-                <option value="veo3.1">Veo 3.1</option>
-                <option value="veo3.1-fast">Veo 3.1 Fast</option>
-                <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
-                <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
-                <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
-                <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
-                <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
-                <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
-                <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
-                <option value="wan2.2-i2v-flash">Wan2.2 I2v Flash</option>
-            </select>
-            <video id="modelAVideo" loop muted playsinline preload="auto">
-                <source src="" type="video/mp4">
-            </video>
-            <div class="video-controls">
-                <button class="play-btn" data-video="modelAVideo">▶</button>
-                <input type="range" class="progress-bar" id="modelAProgress" min="0" max="100" value="0" step="0.1">
-                <span class="time-display" id="modelATime">0:00 / 0:00</span>
-            </div>
-        </div>
-        
-        <div class="video-column">
-            <h4>Model B</h4>
-            <select id="modelBSelect">
-                <option value="sora-2">Sora 2</option>
-                <option value="veo3.1">Veo 3.1</option>
-                <option value="veo3.1-fast">Veo 3.1 Fast</option>
-                <option value="wan2.2-ti2v-5B-FT-DA">Fine-tuned Our Model</option>
-                <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
-                <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
-                <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
-                <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
-                <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
-                <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
-                <option value="wan2.2-i2v-flash" selected>Wan2.2 I2v Flash</option>
-            </select>
-            <video id="modelBVideo" loop muted playsinline preload="auto">
-                <source src="" type="video/mp4">
-            </video>
-            <div class="video-controls">
-                <button class="play-btn" data-video="modelBVideo">▶</button>
-                <input type="range" class="progress-bar" id="modelBProgress" min="0" max="100" value="0" step="0.1">
-                <span class="time-display" id="modelBTime">0:00 / 0:00</span>
+    <div class="container" style="margin-bottom: 3rem;">
+        <div class="pipeline-step">
+            <h3>Overview</h3>
+            <div class="step-content">
+                <p style="max-width: 100%; text-align: justify; font-size: 1.1rem;">
+                    <strong>Target-Bench Framework.</strong> The pipeline comprises three stages: 1) <strong>World Model Inference</strong> generates video predictions conditioned on a semantic target; 2) <strong>Spatial-temporal Reconstruction</strong> recovers camera poses from generated frames; 3) <strong>Evaluation</strong> compares the reconstructed path against ground truth.
+                </p>
+                <img src="resources/figs/benchmark.png" alt="Target-Bench Framework" class="pipeline-image" style="max-height: none; width: 100%;">
+                
+                <hr style="width: 100%; border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
+
+                <p style="max-width: 100%; text-align: justify; font-size: 1.1rem;">
+                    <strong>Hardware Configuration.</strong> The data collection platform is a Unitree Go1 quadruped robot. Key sensors include a <strong>Livox MID-360 LiDAR</strong> for mapping and a <strong>Realsense D435i stereo camera</strong> for visual data. A <strong>Jetson AGX Orin</strong> handles onboard processing, with a switch managing connections between components.
+                </p>
+                <img src="resources/figs/robot_setup.png" alt="Robot Hardware Setup" class="pipeline-image" style="max-height: none; width: 100%;">
             </div>
         </div>
     </div>
 
-    <div class="evaluation-pipeline">
+    <div class="container">
+        <h2>Dataset Interactive Demo</h2>
+        <p>Compare ground truth robot navigation videos with different video generation models.</p>
+        
+        <div class="sample-info">
+            <span id="sampleCounter">Sample 1 of 117</span>
+        </div>
+        
+        <div class="controls">
+            <button id="prevBtn">◀ Previous</button>
+            <button id="playBtn">▶ Play All</button>
+            <button id="refreshBtn">🔄 Refresh</button>
+            <button id="pauseBtn">⏸ Pause All</button>
+            <button id="nextBtn">Next ▶</button>
+        </div>
+        
+        <div class="video-comparison">
+            <div class="task-column">
+                <h4>Task Description</h4>
+                <div class="task-text" id="taskText">Loading...</div>
+                <h4>Current Frame</h4>
+                <img id="currentFrame" src="" alt="Current Frame">
+            </div>
+            
+            <div class="video-column">
+                <h4>Model A</h4>
+                <select id="modelASelect">
+                    <option value="sora-2" selected>Sora 2</option>
+                    <option value="veo3.1">Veo 3.1</option>
+                    <option value="veo3.1-fast">Veo 3.1 Fast</option>
+                    <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
+                    <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
+                    <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
+                    <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
+                    <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
+                    <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
+                    <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
+                    <option value="wan2.2-i2v-flash">Wan2.2 I2v Flash</option>
+                </select>
+                <video id="modelAVideo" loop muted playsinline controls preload="auto">
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="video-column">
+                <h4>Model B</h4>
+                <select id="modelBSelect">
+                    <option value="sora-2">Sora 2</option>
+                    <option value="veo3.1">Veo 3.1</option>
+                    <option value="veo3.1-fast">Veo 3.1 Fast</option>
+                    <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
+                    <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
+                    <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
+                    <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
+                    <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
+                    <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
+                    <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
+                    <option value="wan2.2-i2v-flash" selected>Wan2.2 I2v Flash</option>
+                </select>
+                <video id="modelBVideo" loop muted playsinline controls preload="auto">
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="container evaluation-pipeline">
         <h2>Evaluation Pipeline</h2>
         
         <div class="pipeline-step">
@@ -154,39 +165,71 @@
                 <div class="task-info">
                     <p><strong>Task:</strong> Move next to the person and stop at the side of the sofa</p>
                 </div>
-                <img src="resources/Benchmark/sample_291_custom_segment_100_400/sample_291_custom_segment_100_400_current_frame.png" alt="Current Frame" class="pipeline-image">
+                <div class="media-row-header">
+                    <p>Current Frame</p>
+                    <p>Ground Truth Video</p>
+                </div>
+                <div class="media-row">
+                    <img src="resources/Benchmark/sample_291_custom_segment_100_400/sample_291_custom_segment_100_400_current_frame.png" alt="Current Frame" class="pipeline-image">
+                    <video controls loop muted playsinline>
+                         <source src="resources/evaluation_pipeline/sample_291_gt.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
 
         <div class="pipeline-step">
-            <h3>2. World Model</h3>
-            <button id="btnGenerate" class="action-btn">Generate</button>
+            <div class="step-header">
+                <h3>2. World Model</h3>
+                <button id="btnGenerate" class="action-btn">Generate</button>
+            </div>
             <div id="containerGenerate" class="result-container empty">
                 <!-- Content will be injected via JS -->
             </div>
         </div>
 
         <div class="pipeline-step">
-            <h3>3. Spatial-temporal Reconstruction</h3>
-            <button id="btnReconstruct" class="action-btn">Reconstruct</button>
+            <div class="step-header">
+                <h3>3. Spatial-temporal Reconstruction</h3>
+                <button id="btnReconstruct" class="action-btn">Reconstruct</button>
+            </div>
             <div id="containerReconstruct" class="result-container empty">
                 <!-- Content will be injected via JS -->
             </div>
         </div>
 
         <div class="pipeline-step">
-            <h3>4. Extrinsic Extraction Path Builder</h3>
-            <button id="btnExtract" class="action-btn">Extract</button>
+            <div class="step-header">
+                <h3>4. Extrinsic Extraction Path Builder</h3>
+                <button id="btnExtract" class="action-btn">Extract</button>
+            </div>
             <div id="containerExtract" class="result-container empty">
                 <!-- Content will be injected via JS -->
             </div>
         </div>
 
         <div class="pipeline-step">
-            <h3>5. Evaluation with Metrics</h3>
-            <button id="btnEvaluate" class="action-btn">Evaluate</button>
-            <div id="containerEvaluate" class="result-container empty">
-                <!-- Content will be injected via JS -->
+            <div class="step-header">
+                <h3>5. Evaluation with Metrics</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 3rem;">
+        <div class="pipeline-step">
+            <h3>Quantitative Results</h3>
+            <div class="step-content">
+                <p style="max-width: 100%; text-align: justify; font-size: 1.1rem;">
+                    <strong>Model Comparison.</strong> We benchmark state-of-the-art video generation models (Sora, Veo, Wan series) across multiple metrics. The <strong>VGGT Score</strong> evaluates general video quality, while <strong>SpaTracker</strong> and <strong>ViPE</strong> assess spatial consistency and tracking performance.
+                </p>
+                <img src="resources/figs/model_compare_vggt.png" alt="Model Comparison VGGT" class="pipeline-image" style="max-height: none; width: 100%;">
+
+                <hr style="width: 100%; border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
+
+                <p style="max-width: 100%; text-align: justify; font-size: 1.1rem;">
+                    <strong>Comprehensive Metrics.</strong> Detailed breakdown of performance including <strong>Average Displacement Error (ADE)</strong> and <strong>Final Displacement Error (FDE)</strong> for trajectory accuracy, alongside <strong>Miss Rate</strong>, <strong>Soft Endpoint (SE)</strong>, and <strong>Approach Consistency (AC)</strong>. The charts illustrate the strengths and weaknesses of each model in mapless path planning tasks.
+                </p>
+                <img src="resources/figs/overall_score_comparison.png" alt="Overall Score Comparison" class="pipeline-image" style="max-height: none; width: 100%;">
             </div>
         </div>
     </div>

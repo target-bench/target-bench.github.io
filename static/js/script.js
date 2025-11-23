@@ -17,10 +17,6 @@ const elements = {
     modelBVideo: document.getElementById('modelBVideo'),
     modelASelect: document.getElementById('modelASelect'),
     modelBSelect: document.getElementById('modelBSelect'),
-    modelAProgress: document.getElementById('modelAProgress'),
-    modelBProgress: document.getElementById('modelBProgress'),
-    modelATime: document.getElementById('modelATime'),
-    modelBTime: document.getElementById('modelBTime'),
     prevBtn: document.getElementById('prevBtn'),
     nextBtn: document.getElementById('nextBtn'),
     playBtn: document.getElementById('playBtn'),
@@ -70,10 +66,6 @@ async function loadSample(index) {
     // Reset videos
     elements.modelAVideo.load();
     elements.modelBVideo.load();
-    
-    // Reset progress bars
-    elements.modelAProgress.value = 0;
-    elements.modelBProgress.value = 0;
     
     // Preload next sample (TikTok style)
     if (index < samples.length - 1 && !nextSamplePreloaded) {
@@ -165,114 +157,6 @@ document.addEventListener('keydown', (e) => {
             pauseAllVideos();
         }
     }
-});
-
-// Video control functions
-function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-}
-
-function setupVideoControls(video, progressBar, timeDisplay, playBtn) {
-    let isSeeking = false;
-    let pendingSeek = null;
-    let rafId = null;
-    
-    // Update progress bar as video plays (only when not seeking)
-    video.addEventListener('timeupdate', () => {
-        if (video.duration && !isSeeking) {
-            const progress = (video.currentTime / video.duration) * 100;
-            progressBar.value = progress;
-            timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-        }
-    });
-    
-    // Smooth seeking using requestAnimationFrame
-    function performSeek(targetTime) {
-        if (rafId) {
-            cancelAnimationFrame(rafId);
-        }
-        
-        rafId = requestAnimationFrame(() => {
-            // Only seek if not already seeking and target is different enough
-            if (Math.abs(video.currentTime - targetTime) > 0.1) {
-                video.currentTime = targetTime;
-            }
-            rafId = null;
-        });
-    }
-    
-    // When user starts dragging
-    progressBar.addEventListener('mousedown', () => {
-        isSeeking = true;
-        video.pause();
-    });
-    
-    progressBar.addEventListener('touchstart', () => {
-        isSeeking = true;
-        video.pause();
-    });
-    
-    // Update both display and video while dragging
-    progressBar.addEventListener('input', () => {
-        if (video.duration) {
-            const time = (progressBar.value / 100) * video.duration;
-            timeDisplay.textContent = `${formatTime(time)} / ${formatTime(video.duration)}`;
-            
-            // Store pending seek and perform it smoothly
-            pendingSeek = time;
-            performSeek(time);
-        }
-    });
-    
-    // When user releases - final seek
-    progressBar.addEventListener('change', () => {
-        if (video.duration) {
-            const time = (progressBar.value / 100) * video.duration;
-            video.currentTime = time;
-        }
-        isSeeking = false;
-        pendingSeek = null;
-    });
-    
-    progressBar.addEventListener('mouseup', () => {
-        isSeeking = false;
-        pendingSeek = null;
-    });
-    
-    progressBar.addEventListener('touchend', () => {
-        isSeeking = false;
-        pendingSeek = null;
-    });
-    
-    // Play/pause button
-    playBtn.addEventListener('click', () => {
-        if (video.paused) {
-            video.play();
-            playBtn.textContent = '⏸';
-        } else {
-            video.pause();
-            playBtn.textContent = '▶';
-        }
-    });
-    
-    // Update button when video state changes
-    video.addEventListener('play', () => playBtn.textContent = '⏸');
-    video.addEventListener('pause', () => playBtn.textContent = '▶');
-}
-
-// Setup individual video controls
-const playButtons = document.querySelectorAll('.play-btn');
-playButtons.forEach(btn => {
-    const videoId = btn.getAttribute('data-video');
-    const video = document.getElementById(videoId);
-    const progressId = videoId.replace('Video', 'Progress');
-    const timeId = videoId.replace('Video', 'Time');
-    const progressBar = document.getElementById(progressId);
-    const timeDisplay = document.getElementById(timeId);
-    
-    setupVideoControls(video, progressBar, timeDisplay, btn);
 });
 
 // Load first sample on page load
