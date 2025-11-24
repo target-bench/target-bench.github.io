@@ -72,6 +72,7 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     font-weight: 800;
     background: linear-gradient(to right, #ff6600, #ff8533);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.3;
     padding-bottom: 10px;
@@ -331,8 +332,15 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     align-items: stretch; /* Ensures equal height for sidebar and content */
 }
 
+.section-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    padding: 30px;
+}
+
 .pipeline-sidebar {
-    width: 35%;
+    width: 37%;
     flex-shrink: 0;
     position: relative; /* For potential absolute positioning if needed, but flex item usually fine */
 }
@@ -482,7 +490,8 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
 
 #containerGenerate,
 #containerReconstruct,
-#containerExtract {
+#containerExtract,
+#containerEvaluate {
     height: 300px; /* Fixed height to maintain layout stability before/after generation as requested */
     min-height: 300px;
 }

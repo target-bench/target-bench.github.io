@@ -219,10 +219,9 @@ document.getElementById('btnEvaluate').addEventListener('click', function() {
     const container = document.getElementById('containerEvaluate');
     container.classList.remove('empty');
     container.innerHTML = `
-        <div class="evaluation-score">
-            Target Reached! <br>
-            <span style="font-size: 0.8em; color: #666;">Trajectory Deviation: 0.42m</span>
-        </div>
+        <img src="resources/evaluation_pipeline/trajectory_sample_291.png" 
+             alt="Evaluation Metrics"
+             style="width: 100%; height: 100%;">
     `;
     this.disabled = true;
     this.textContent = "Evaluate";

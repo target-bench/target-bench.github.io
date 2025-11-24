@@ -92,66 +92,67 @@
 
     <div class="container">
         <h2>Dataset Interactive Demo</h2>
-        <p>Compare ground truth robot navigation videos with different video generation models.</p>
-        
-        <div class="sample-info">
-            <span id="sampleCounter">Sample 1 of 117</span>
-        </div>
-        
-        <div class="controls">
-            <button id="prevBtn">◀ Previous</button>
-            <button id="playBtn">▶ Play All</button>
-            <button id="refreshBtn">🔄 Refresh</button>
-            <button id="pauseBtn">⏸ Pause All</button>
-            <button id="nextBtn">Next ▶</button>
-        </div>
-        
-        <div class="video-comparison">
-            <div class="task-column">
-                <h4>Task Description</h4>
-                <div class="task-text" id="taskText">Loading...</div>
-                <h4>Current Frame</h4>
-                <img id="currentFrame" src="" alt="Current Frame">
+        <div class="section-card">
+            <p>Compare ground truth robot navigation videos with different video generation models.</p>
+            
+            <div class="sample-info">
+                <span id="sampleCounter">Sample 1 of 117</span>
             </div>
             
-            <div class="video-column">
-                <h4>Model A</h4>
-                <select id="modelASelect">
-                    <option value="sora-2" selected>Sora 2</option>
-                    <option value="veo3.1">Veo 3.1</option>
-                    <option value="veo3.1-fast">Veo 3.1 Fast</option>
-                    <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
-                    <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
-                    <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
-                    <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
-                    <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
-                    <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
-                    <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
-                    <option value="wan2.2-i2v-flash">Wan2.2 I2v Flash</option>
-                </select>
-                <video id="modelAVideo" loop muted playsinline controls preload="auto">
-                    <source src="" type="video/mp4">
-                </video>
+            <div class="controls">
+                <button id="prevBtn">◀ Previous</button>
+                <button id="playBtn">▶ Play All</button>
+                <button id="refreshBtn">🔄 Refresh</button>
+                <button id="pauseBtn">⏸ Pause All</button>
+                <button id="nextBtn">Next ▶</button>
             </div>
             
-            <div class="video-column">
-                <h4>Model B</h4>
-                <select id="modelBSelect">
-                    <option value="sora-2">Sora 2</option>
-                    <option value="veo3.1">Veo 3.1</option>
-                    <option value="veo3.1-fast">Veo 3.1 Fast</option>
-                    <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
-                    <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
-                    <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
-                    <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
-                    <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
-                    <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
-                    <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
-                    <option value="wan2.2-i2v-flash" selected>Wan2.2 I2v Flash</option>
-                </select>
-                <video id="modelBVideo" loop muted playsinline controls preload="auto">
-                    <source src="" type="video/mp4">
-                </video>
+            <div class="video-comparison">
+                <div class="task-column">
+                    <h4>Semantic Target & Current Frame</h4>
+                    <div class="task-text" id="taskText">Loading...</div>
+                    <img id="currentFrame" src="" alt="Current Frame">
+                </div>
+                
+                <div class="video-column">
+                    <h4>Model A</h4>
+                    <select id="modelASelect">
+                        <option value="sora-2" selected>Sora 2</option>
+                        <option value="veo3.1">Veo 3.1</option>
+                        <option value="veo3.1-fast">Veo 3.1 Fast</option>
+                        <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
+                        <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
+                        <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
+                        <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
+                        <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
+                        <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
+                        <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
+                        <option value="wan2.2-i2v-flash">Wan2.2 I2v Flash</option>
+                    </select>
+                    <video id="modelAVideo" loop muted playsinline controls preload="auto">
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="video-column">
+                    <h4>Model B</h4>
+                    <select id="modelBSelect">
+                        <option value="sora-2">Sora 2</option>
+                        <option value="veo3.1">Veo 3.1</option>
+                        <option value="veo3.1-fast">Veo 3.1 Fast</option>
+                        <option value="wan2.2-ti2v-5B-FT-DA">wan2.2-ti2v-5B-FT-DA</option>
+                        <option value="wan2.2-ti2v-5B-FT">Wan2.2 Ti2v 5B FT</option>
+                        <option value="wan2.2-ti2v-5B-base">Wan2.2 Ti2v 5B Base</option>
+                        <option value="wan2.5-i2v-preview">Wan2.5 I2v Preview</option>
+                        <option value="wan2.1-i2v-plus">Wan2.1 I2v Plus</option>
+                        <option value="wan2.2-i2v-plus">Wan2.2 I2v Plus</option>
+                        <option value="wan2.1-i2v-turbo">Wan2.1 I2v Turbo</option>
+                        <option value="wan2.2-i2v-flash" selected>Wan2.2 I2v Flash</option>
+                    </select>
+                    <video id="modelBVideo" loop muted playsinline controls preload="auto">
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
     </div>
@@ -159,7 +160,7 @@
     <div class="container evaluation-pipeline">
         <h2>Evaluation Pipeline</h2>
         
-        <div class="pipeline-wrapper">
+        <div class="pipeline-wrapper section-card">
             <div class="pipeline-sidebar">
                 <img src="resources/figs/pipeline.png" alt="Evaluation Pipeline Overview">
             </div>
@@ -217,6 +218,10 @@
                 <div class="pipeline-step">
                     <div class="step-header">
                         <h3>5. Evaluation with Metrics</h3>
+                        <button id="btnEvaluate" class="action-btn">Evaluate</button>
+                    </div>
+                    <div id="containerEvaluate" class="result-container empty">
+                        <!-- Content will be injected via JS -->
                     </div>
                 </div>
             </div>
