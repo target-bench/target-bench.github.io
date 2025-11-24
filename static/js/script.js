@@ -167,13 +167,13 @@ document.getElementById('btnGenerate').addEventListener('click', function() {
     const container = document.getElementById('containerGenerate');
     container.classList.remove('empty');
     container.innerHTML = `
-        <video autoplay loop muted playsinline controls style="width: 100%; height: auto; max-height: 400px;">
+        <video autoplay loop muted playsinline controls style="width: 100%; height: 100%;">
             <source src="resources/evaluation_pipeline/sample_291_vggt_veo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     `;
     this.disabled = true;
-    this.textContent = "Generated";
+    this.textContent = "Generate";
 });
 
 document.getElementById('btnReconstruct').addEventListener('click', function() {
@@ -196,11 +196,11 @@ document.getElementById('btnReconstruct').addEventListener('click', function() {
             ar
             disable-shadow
             ar-modes="webxr scene-viewer quick-look"
-            style="width: 100%; height: 500px; background: #f5f5f5; border: 3px solid #43a3f6; border-radius: 8px;">
+            style="width: 100%; height: 100%; background: #f5f5f5; border: 3px solid #43a3f6; border-radius: 8px;">
         </model-viewer>
     `;
     this.disabled = true;
-    this.textContent = "Reconstructed";
+    this.textContent = "Reconstruct";
 });
 
 document.getElementById('btnExtract').addEventListener('click', function() {
@@ -209,10 +209,10 @@ document.getElementById('btnExtract').addEventListener('click', function() {
     container.innerHTML = `
         <img src="resources/Benchmark/sample_291_custom_segment_100_400/sample_291_custom_segment_100_400_trajectory_plot.png" 
              alt="Trajectory Plot"
-             style="width: 100%; height: auto; max-height: 400px;">
+             style="width: 100%; height: 100%;">
     `;
     this.disabled = true;
-    this.textContent = "Extracted";
+    this.textContent = "Extract";
 });
 
 document.getElementById('btnEvaluate').addEventListener('click', function() {
@@ -225,5 +225,5 @@ document.getElementById('btnEvaluate').addEventListener('click', function() {
         </div>
     `;
     this.disabled = true;
-    this.textContent = "Evaluated";
+    this.textContent = "Evaluate";
 });

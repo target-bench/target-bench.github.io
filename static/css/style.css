@@ -1,3 +1,9 @@
+/* 
+ * Main stylesheet for the Target-Bench website.
+ * Defines global styles, layout structure, typography, and specific component styles 
+ * including the evaluation pipeline and video comparison sections.
+ */
+
 /* Reset and Base Styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -319,6 +325,34 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     border-top: 1px solid #dbdbdb;
 }
 
+.pipeline-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: stretch; /* Ensures equal height for sidebar and content */
+}
+
+.pipeline-sidebar {
+    width: 35%;
+    flex-shrink: 0;
+    position: relative; /* For potential absolute positioning if needed, but flex item usually fine */
+}
+
+.pipeline-sidebar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures image fits within the container without distortion */
+    object-position: top; /* Aligns image to the top to remove visual top margin */
+    border-radius: 12px;
+    display: block;
+}
+
+.pipeline-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
 .pipeline-step {
     margin-bottom: 50px;
     padding: 30px;
@@ -404,6 +438,8 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     transition: all 0.2s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     font-weight: 600;
+    width: 200px; /* Fixed width to ensure all pipeline buttons (Generate, Reconstruct, Extract) match the widest one */
+    text-align: center;
 }
 
 .step-header .action-btn {
@@ -442,6 +478,13 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
 
 .result-container.empty {
     background: #fafafa;
+}
+
+#containerGenerate,
+#containerReconstruct,
+#containerExtract {
+    height: 300px; /* Fixed height to maintain layout stability before/after generation as requested */
+    min-height: 300px;
 }
 
 .result-container video,
@@ -489,5 +532,25 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     
     .title-row-2 {
         font-size: 1.5rem;
+    }
+
+    /* Pipeline Responsive */
+    .pipeline-wrapper {
+        flex-direction: column;
+    }
+    
+    .pipeline-sidebar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .pipeline-sidebar img {
+        height: auto; /* Reset height constraint on mobile */
+        max-height: 500px;
+    }
+    
+    .pipeline-content {
+        width: 100%;
     }
 }

@@ -159,58 +159,66 @@
     <div class="container evaluation-pipeline">
         <h2>Evaluation Pipeline</h2>
         
-        <div class="pipeline-step">
-            <h3>1. Current Frame & Semantic Task</h3>
-            <div class="step-content">
-                <div class="task-info">
-                    <p><strong>Task:</strong> Move next to the person and stop at the side of the sofa</p>
+        <div class="pipeline-wrapper">
+            <div class="pipeline-sidebar">
+                <img src="resources/figs/pipeline.png" alt="Evaluation Pipeline Overview">
+            </div>
+            
+            <div class="pipeline-content">
+                <div class="pipeline-step">
+                    <h3>1. Current Frame & Semantic Task</h3>
+                    <div class="step-content">
+                        <div class="task-info">
+                            <p><strong>Task:</strong> Move next to the person and stop at the side of the sofa</p>
+                        </div>
+                        <div class="media-row-header">
+                            <p>Current Frame</p>
+                            <p>Ground Truth Video</p>
+                        </div>
+                        <div class="media-row">
+                            <img src="resources/Benchmark/sample_291_custom_segment_100_400/sample_291_custom_segment_100_400_current_frame.png" alt="Current Frame" class="pipeline-image">
+                            <video controls loop muted playsinline>
+                                 <source src="resources/evaluation_pipeline/sample_291_gt.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
-                <div class="media-row-header">
-                    <p>Current Frame</p>
-                    <p>Ground Truth Video</p>
+        
+                <div class="pipeline-step">
+                    <div class="step-header">
+                        <h3>2. World Model</h3>
+                        <button id="btnGenerate" class="action-btn">Generate</button>
+                    </div>
+                    <div id="containerGenerate" class="result-container empty">
+                        <!-- Content will be injected via JS -->
+                    </div>
                 </div>
-                <div class="media-row">
-                    <img src="resources/Benchmark/sample_291_custom_segment_100_400/sample_291_custom_segment_100_400_current_frame.png" alt="Current Frame" class="pipeline-image">
-                    <video controls loop muted playsinline>
-                         <source src="resources/evaluation_pipeline/sample_291_gt.mp4" type="video/mp4">
-                    </video>
+        
+                <div class="pipeline-step">
+                    <div class="step-header">
+                        <h3>3. Spatial-temporal Reconstruction</h3>
+                        <button id="btnReconstruct" class="action-btn">Reconstruct</button>
+                    </div>
+                    <div id="containerReconstruct" class="result-container empty">
+                        <!-- Content will be injected via JS -->
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="pipeline-step">
-            <div class="step-header">
-                <h3>2. World Model</h3>
-                <button id="btnGenerate" class="action-btn">Generate</button>
-            </div>
-            <div id="containerGenerate" class="result-container empty">
-                <!-- Content will be injected via JS -->
-            </div>
-        </div>
-
-        <div class="pipeline-step">
-            <div class="step-header">
-                <h3>3. Spatial-temporal Reconstruction</h3>
-                <button id="btnReconstruct" class="action-btn">Reconstruct</button>
-            </div>
-            <div id="containerReconstruct" class="result-container empty">
-                <!-- Content will be injected via JS -->
-            </div>
-        </div>
-
-        <div class="pipeline-step">
-            <div class="step-header">
-                <h3>4. Extrinsic Extraction Path Builder</h3>
-                <button id="btnExtract" class="action-btn">Extract</button>
-            </div>
-            <div id="containerExtract" class="result-container empty">
-                <!-- Content will be injected via JS -->
-            </div>
-        </div>
-
-        <div class="pipeline-step">
-            <div class="step-header">
-                <h3>5. Evaluation with Metrics</h3>
+        
+                <div class="pipeline-step">
+                    <div class="step-header">
+                        <h3>4. Extrinsic Extraction Path Builder</h3>
+                        <button id="btnExtract" class="action-btn">Extract</button>
+                    </div>
+                    <div id="containerExtract" class="result-container empty">
+                        <!-- Content will be injected via JS -->
+                    </div>
+                </div>
+        
+                <div class="pipeline-step">
+                    <div class="step-header">
+                        <h3>5. Evaluation with Metrics</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
