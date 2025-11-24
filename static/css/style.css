@@ -165,6 +165,28 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     padding: 0 1.5rem;
 }
 
+/* Teaser Video Section */
+.hero.teaser {
+    padding-top: 0;
+    margin-top: -2rem; /* Pull it up a bit towards the header */
+}
+
+.teaser .hero-body {
+    padding-top: 0;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+#teaser-video {
+    max-width: 85%;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
 /* Video Comparison Section */
 .video-comparison {
     display: grid;
@@ -542,7 +564,9 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     .title-row-2 {
         font-size: 1.5rem;
     }
+}
 
+@media (max-width: 768px) {
     /* Pipeline Responsive */
     .pipeline-wrapper {
         flex-direction: column;
