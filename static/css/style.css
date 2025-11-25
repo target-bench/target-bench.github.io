@@ -142,7 +142,9 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     font-size: 1rem;
     display: inline-flex;
     align-items: center;
+    justify-content: center; /* 确保图标和文字在按钮内居中对齐 */
     gap: 8px;
+    width: 125px; /* 固定宽度使所有按钮一致 */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: all 0.2s ease;
 }
