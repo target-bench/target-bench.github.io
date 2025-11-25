@@ -244,16 +244,18 @@
             <h3>Quantitative Results</h3>
             <div class="step-content">
                 <p style="max-width: 100%; text-align: justify; font-size: 1.1rem;">
-                    <strong>Model Comparison.</strong> We benchmark state-of-the-art video generation models (Sora, Veo, Wan series) across multiple metrics. The <strong>VGGT Score</strong> evaluates general video quality, while <strong>SpaTracker</strong> and <strong>ViPE</strong> assess spatial consistency and tracking performance.
+                    <strong>World Models Comparison.</strong> We benchmark state-of-the-art video generation models (Sora, Veo, Wan series). To evaluate their planning capability, we introduce a <strong>Weighted Overall (WO) Score</strong> to quantify performance, aggregating five key metrics: <strong>Average/Final Displacement Error (ADE/FDE)</strong> for accuracy, <strong>Miss Rate (MR)</strong> for reliability, and <strong>Soft Endpoint (SE)</strong> with <strong>Approach Consistency (AC)</strong> for semantic goal adherence. 
                 </p>
                 <img src="resources/figs/model_compare_vggt.png" alt="Model Comparison VGGT" class="pipeline-image" style="max-height: none; width: 100%;">
+                <p class="caption" style="text-align: center; font-style: italic; margin-top: 0.5rem;">World model performance comparison with VGGT as world decoder’s spatio-temporal reconstruction tool.</p>
 
                 <hr style="width: 100%; border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
 
                 <p style="max-width: 100%; text-align: justify; font-size: 1.1rem;">
-                    <strong>Comprehensive Metrics.</strong> Detailed breakdown of performance including <strong>Average Displacement Error (ADE)</strong> and <strong>Final Displacement Error (FDE)</strong> for trajectory accuracy, alongside <strong>Miss Rate</strong>, <strong>Soft Endpoint (SE)</strong>, and <strong>Approach Consistency (AC)</strong>. The charts illustrate the strengths and weaknesses of each model in mapless path planning tasks.
+                    <strong>World Decoders Comparison.</strong> We employ <strong>VGGT</strong>, <strong>SpaTracker</strong>, and <strong>ViPE</strong> as world decoders to recover 3D camera trajectories from the generated videos, enabling direct comparison with ground truth paths.
                 </p>
                 <img src="resources/figs/overall_score_comparison.png" alt="Overall Score Comparison" class="pipeline-image" style="max-height: none; width: 100%;">
+                <p class="caption" style="text-align: center; font-style: italic; margin-top: 0.5rem;">Overall score comparison between different spatio-temporal reconstruction tools.</p>
             </div>
         </div>
     </div>
