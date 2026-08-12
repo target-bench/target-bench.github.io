@@ -19,12 +19,13 @@
             <div class="title-row-2">
                 Can Video World Models Achieve Mapless Path Planning with Semantic Targets?
             </div>
+            <div class="acceptance-badge">ECCV 2026</div>
         </div>
         
         <div class="authors">
             <!-- Row 1: 4 authors -->
             <div class="author-names">
-                <span class="author">Dingrui Wang<sup>1,2,*</sup></span>
+                <span class="author"><a href="https://github.com/Dingrui-Wang">Dingrui Wang</a><sup>1,2,*</sup></span>
                 <span class="author">Zhihao Liang<sup>1,*</sup></span>
                 <span class="author">Hongyuan Ye<sup>1,*</sup></span>
                 <span class="author">Zhexiao Sun<sup>1,*</sup></span>
@@ -86,6 +87,49 @@
             </div>
         </div>
     </section>
+
+    <div class="container leaderboard-section" id="leaderboard">
+        <div class="pipeline-step">
+            <h3>Quantitative Results</h3>
+            <div class="step-content">
+                <p style="max-width: 100%; text-align: justify; font-size: 1.1rem;">
+                    <strong>World Models Comparison.</strong> We benchmark state-of-the-art video generation models (Sora, Veo, Wan series). To evaluate their planning capability, we introduce a <strong>Weighted Overall (WO) Score</strong> to quantify performance, aggregating five key metrics: <strong>Average/Final Displacement Error (ADE/FDE)</strong> for accuracy, <strong>Miss Rate (MR)</strong> for reliability, and <strong>Soft Endpoint (SE)</strong> with <strong>Approach Consistency (AC)</strong> for semantic goal adherence.
+                </p>
+                <div class="leaderboard-panel" aria-labelledby="leaderboard-title">
+                    <div class="leaderboard-header">
+                        <div>
+                            <h4 id="leaderboard-title">Target-Bench Leaderboard</h4>
+                            <p id="leaderboard-meta">Loading evaluation results…</p>
+                        </div>
+                        <span class="backbone-badge">Backbone: VGGT-Omega 1B / 512</span>
+                    </div>
+                    <div class="leaderboard-table-wrap">
+                        <table class="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Rank</th>
+                                    <th scope="col"><button type="button" data-sort="model">World model</button></th>
+                                    <th scope="col"><button type="button" data-sort="overall_score_mean">WO ↑</button></th>
+                                    <th scope="col"><button type="button" data-sort="ade_mean">ADE ↓</button></th>
+                                    <th scope="col"><button type="button" data-sort="fde_mean">FDE ↓</button></th>
+                                    <th scope="col"><button type="button" data-sort="miss_rate_mean">MR ↓</button></th>
+                                    <th scope="col"><button type="button" data-sort="se_mean">SE ↑</button></th>
+                                    <th scope="col"><button type="button" data-sort="ac_mean">AC ↑</button></th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-body">
+                                <tr><td colspan="8" class="leaderboard-status">Loading results…</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="leaderboard-note">↑ higher is better; ↓ lower is better. Click a metric header to sort. Ground-truth videos are shown as an unranked reference.</p>
+                    <aside class="leaderboard-notification" aria-label="Numerical reproducibility note">
+                        <strong>Numerical reproducibility.</strong> CUDA and GPU changes can select different kernels and reduction orders; because floating-point arithmetic is not associative, small differences may accumulate through trajectory estimation. With identical videos, extracted frames, code, and weights, our ground-truth WO scores were 0.94759 on H100/cu126, 0.94762 on H100/cu130, and 0.94731 on Blackwell/cu130. This small numerical variation has little impact on model comparisons.
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container" style="margin-bottom: 3rem;">
         <div class="pipeline-step">
@@ -266,6 +310,6 @@
     </div>
 
     <script src="static/js/script.js"></script>
+    <script src="static/js/leaderboard.js"></script>
 </body>
 </html>
-

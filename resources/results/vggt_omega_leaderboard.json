@@ -1,0 +1,177 @@
+{
+  "backbone": "vggt_omega",
+  "generated_at": "2026-08-12 15:15 CST",
+  "num_segments": 125,
+  "source_run": "/data/dingrui/output/target-bench/vggt_omega/full_run_20260812_1510/final",
+  "legacy_source_run": "/hyperai/home/target-bench/evaluation_results",
+  "rows": [
+    {
+      "model": "gt_videos",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.94730866450585,
+      "ade_mean": 0.0742132776174837,
+      "fde_mean": 0.13348806694310048,
+      "miss_rate_mean": 0.0,
+      "se_mean": 0.9523040087976575,
+      "ac_mean": 1.0
+    },
+    {
+      "model": "wan2.2-ti2v-5B-F-D",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.47750942767493926,
+      "ade_mean": 0.4003516233297005,
+      "fde_mean": 0.914580792699497,
+      "miss_rate_mean": 9.042935770378245,
+      "se_mean": 0.39279450308877395,
+      "ac_mean": 0.8336766532922566
+    },
+    {
+      "model": "wan2.2-i2v-flash",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.38454044532960024,
+      "ade_mean": 0.7182589388218681,
+      "fde_mean": 1.2973630977435313,
+      "miss_rate_mean": 22.31622123257722,
+      "se_mean": 0.3090520740080355,
+      "ac_mean": 0.7670435997032565
+    },
+    {
+      "model": "wan2.2-ti2v-5B-F",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.3737511687696598,
+      "ade_mean": 0.562436174802606,
+      "fde_mean": 1.1989651826528442,
+      "miss_rate_mean": 16.598690643691796,
+      "se_mean": 0.27497152630687116,
+      "ac_mean": 0.7858684043943587
+    },
+    {
+      "model": "wan2.2-i2v-plus",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.3402545711928487,
+      "ade_mean": 0.7338914856458348,
+      "fde_mean": 1.3136214184478376,
+      "miss_rate_mean": 24.2814396178635,
+      "se_mean": 0.26020404957851084,
+      "ac_mean": 0.7347040110711568
+    },
+    {
+      "model": "Cosmos3-Super-I2V",
+      "source": "legacy_h100_cu126",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.2637064059515485,
+      "ade_mean": 1.2392204757282246,
+      "fde_mean": 2.2411449563740704,
+      "miss_rate_mean": 39.64997743698093,
+      "se_mean": 0.19482117757127382,
+      "ac_mean": 0.6242416368152814
+    },
+    {
+      "model": "sora-2",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.24815014264600668,
+      "ade_mean": 0.9844371113375774,
+      "fde_mean": 1.7866076526531671,
+      "miss_rate_mean": 40.00297271060424,
+      "se_mean": 0.17285609990925274,
+      "ac_mean": 0.8347929010908403
+    },
+    {
+      "model": "wan2.5-i2v-preview",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.24233014460684532,
+      "ade_mean": 1.4710245098427626,
+      "fde_mean": 2.4654511191564676,
+      "miss_rate_mean": 49.76629993102284,
+      "se_mean": 0.19408863187882888,
+      "ac_mean": 0.8528818509048309
+    },
+    {
+      "model": "Cosmos3-Super",
+      "source": "legacy_h100_cu126",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.23829944627238314,
+      "ade_mean": 1.1623683291824085,
+      "fde_mean": 2.175594677514234,
+      "miss_rate_mean": 39.905721503930565,
+      "se_mean": 0.16707452545110846,
+      "ac_mean": 0.7102468825739342
+    },
+    {
+      "model": "veo3.1",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.2247441477607208,
+      "ade_mean": 1.9813342016564024,
+      "fde_mean": 3.055488183263426,
+      "miss_rate_mean": 53.28590112432932,
+      "se_mean": 0.18141666475003235,
+      "ac_mean": 0.42506676273121224
+    },
+    {
+      "model": "veo3.1-fast",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.2099101173930839,
+      "ade_mean": 1.527004591838114,
+      "fde_mean": 2.772711638858885,
+      "miss_rate_mean": 45.089846448631974,
+      "se_mean": 0.1361801852605496,
+      "ac_mean": 0.6919089202002947
+    },
+    {
+      "model": "LingBot-Video-MoE",
+      "source": "legacy_h100_cu126",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.1840286669075332,
+      "ade_mean": 2.640169118418893,
+      "fde_mean": 4.393534825747755,
+      "miss_rate_mean": 61.22360497672809,
+      "se_mean": 0.14269325152879195,
+      "ac_mean": 0.3638815713258433
+    },
+    {
+      "model": "wan2.1-i2v-plus",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.16322143306002845,
+      "ade_mean": 1.7653556389505929,
+      "fde_mean": 3.201327922195852,
+      "miss_rate_mean": 50.66867376535928,
+      "se_mean": 0.08800925607253755,
+      "ac_mean": 0.7013381418631609
+    },
+    {
+      "model": "wan2.2-ti2v-5B-base",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.08059732352766953,
+      "ade_mean": 1.8396297417600223,
+      "fde_mean": 3.5798577606642263,
+      "miss_rate_mean": 66.99865412316355,
+      "se_mean": 0.023866536991315017,
+      "ac_mean": 0.9304579883330423
+    },
+    {
+      "model": "wan2.1-i2v-turbo",
+      "num_segments": 125,
+      "num_valid": 125,
+      "overall_score_mean": 0.03967507375018973,
+      "ade_mean": 2.170728168700483,
+      "fde_mean": 4.24556690421094,
+      "miss_rate_mean": 77.24468196891472,
+      "se_mean": 0.00024762777928921285,
+      "ac_mean": 1.0
+    }
+  ]
+}

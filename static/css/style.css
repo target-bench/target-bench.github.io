@@ -86,6 +86,22 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     margin: 0 auto;
 }
 
+.acceptance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    padding: 0.48rem 1.05rem;
+    border: 1px solid #f4a17c;
+    border-radius: 999px;
+    color: #c84612;
+    background: #fff4ed;
+    box-shadow: 0 3px 10px rgba(214, 69, 20, 0.1);
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
 /* Authors and Affiliations */
 .authors {
     margin-top: 1.5rem;
@@ -549,6 +565,174 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     box-shadow: 0 4px 10px rgba(32, 156, 238, 0.2);
 }
 
+/* Evaluation leaderboard */
+.leaderboard-section {
+    margin: 1.5rem auto 3rem;
+}
+
+.leaderboard-panel {
+    width: 100%;
+    margin: 1.5rem 0 2.25rem;
+    overflow: hidden;
+    border: 1px solid #ffd1bc;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 28px rgba(214, 69, 20, 0.11);
+}
+
+.leaderboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.4rem;
+    color: #4a3228;
+    background: linear-gradient(120deg, #fff8f2, #ffeddf 58%, #ffe2cf);
+}
+
+.leaderboard-header h4 {
+    margin: 0 0 0.2rem;
+    color: #e65318;
+    font-size: 1.35rem;
+}
+
+.leaderboard-header p {
+    margin: 0;
+    color: #80675b;
+    font-size: 0.9rem;
+}
+
+.backbone-badge {
+    flex: none;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #f4a17c;
+    border-radius: 999px;
+    color: #c84612;
+    background: rgba(255, 255, 255, 0.72);
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.leaderboard-table-wrap {
+    overflow-x: auto;
+}
+
+.leaderboard-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 0.8rem 0.7rem;
+    border-bottom: 1px solid #edf1f5;
+    text-align: right;
+}
+
+.leaderboard-table th:first-child,
+.leaderboard-table td:first-child {
+    text-align: center;
+}
+
+.leaderboard-table th:nth-child(2),
+.leaderboard-table td:nth-child(2) {
+    text-align: left;
+}
+
+.leaderboard-table th:last-child,
+.leaderboard-table td:last-child {
+    padding-right: 1.6rem;
+}
+
+.leaderboard-table th {
+    background: #f4f8fb;
+    color: #44576a;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.leaderboard-table th button {
+    padding: 0;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.leaderboard-table th button:hover,
+.leaderboard-table th button.active-sort {
+    color: #e65318;
+}
+
+.leaderboard-table tbody tr:hover {
+    background: #fff8f4;
+}
+
+.leaderboard-table tbody tr.is-reference {
+    color: #8a8a8a;
+    background: #f5f5f5;
+}
+
+.leaderboard-table tbody tr.is-reference:hover {
+    background: #eeeeee;
+}
+
+.rank-medal {
+    display: inline-grid;
+    width: 1.7rem;
+    height: 1.7rem;
+    place-items: center;
+    border-radius: 50%;
+    background: #eaf2f8;
+    color: #31516c;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.rank-medal.rank-1 { background: #ffe59a; color: #765400; }
+.rank-medal.rank-2 { background: #e5e9ed; color: #4c5964; }
+.rank-medal.rank-3 { background: #efc6a4; color: #73421d; }
+
+.model-reference-label {
+    margin-left: 0.4rem;
+    padding: 0.16rem 0.38rem;
+    border-radius: 4px;
+    color: #777;
+    background: #e4e4e4;
+    font-size: 0.66rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.leaderboard-status {
+    padding: 2rem !important;
+    color: #708090;
+    text-align: center !important;
+}
+
+.leaderboard-note {
+    margin: 0;
+    padding: 0.75rem 1.4rem 1rem;
+    color: #6a7784;
+    font-size: 0.82rem;
+}
+
+.leaderboard-notification {
+    margin: 0 1.4rem 1rem;
+    padding: 0.8rem 1rem;
+    border-left: 3px solid #e65318;
+    border-radius: 6px;
+    color: #6e4b3c;
+    background: #fff6f0;
+    font-size: 0.82rem;
+    line-height: 1.55;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .video-comparison {
@@ -587,5 +771,10 @@ h4 { font-size: 1rem; letter-spacing: 0.5px; text-transform: uppercase; color: #
     
     .pipeline-content {
         width: 100%;
+    }
+
+    .leaderboard-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
